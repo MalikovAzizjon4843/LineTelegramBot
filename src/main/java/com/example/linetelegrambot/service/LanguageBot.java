@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
+import org.telegram.telegrambots.meta.api.methods.send.SendVideo;
 import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -266,26 +267,26 @@ public class LanguageBot extends TelegramLongPollingBot {
 
     private void goToWebsite(long chatId, String language) {
 
-        SendPhoto photoMessage = new SendPhoto();
-        photoMessage.setChatId(chatId);
+        SendVideo sendVideo = new SendVideo();
+        sendVideo.setChatId(chatId);
 
         // Determine the image URL based on the language
         String imageUrl;
         switch (language) {
             case "uz":
-                imageUrl = "https://linebet.ink/wp-content/uploads/2023/08/cropped-linebet-logo.png";
+                imageUrl = "https://photos.app.goo.gl/qTekyDaQTAnpwGtx8";
                 break;
             case "ru":
-                imageUrl = "https://linebet.ink/wp-content/uploads/2023/08/cropped-linebet-logo.png";
+                imageUrl = "https://photos.app.goo.gl/qTekyDaQTAnpwGtx8";
                 break;
             case "en":
             default:
-                imageUrl = "https://linebet.ink/wp-content/uploads/2023/08/cropped-linebet-logo.png";
+                imageUrl = "https://photos.app.goo.gl/qTekyDaQTAnpwGtx8";
                 break;
         }
 
         // Set the image URL for the SendPhoto object
-        photoMessage.setPhoto(new InputFile(imageUrl));
+        sendVideo.setVideo(new InputFile(imageUrl));
 
         // Determine the caption text based on the language
         String captionText;
@@ -303,7 +304,7 @@ public class LanguageBot extends TelegramLongPollingBot {
         }
 
         // Set the caption text for the photo message
-        photoMessage.setCaption(captionText);
+        sendVideo.setCaption(captionText);
 
         // Now, create a message with inline button
 
@@ -337,11 +338,11 @@ public class LanguageBot extends TelegramLongPollingBot {
 
         keyboard.add(row);
         keyboardMarkup.setKeyboard(keyboard);
-        photoMessage.setReplyMarkup(keyboardMarkup);
+        sendVideo.setReplyMarkup(keyboardMarkup);
 
         try {
             // Send the photo message
-            execute(photoMessage);
+            execute(sendVideo);
             // Send the message with inline button
         } catch (TelegramApiException e) {
             e.printStackTrace();
@@ -350,26 +351,26 @@ public class LanguageBot extends TelegramLongPollingBot {
 
     private void getBonus(long chatId, String language) {
 
-        SendPhoto photoMessage = new SendPhoto();
+        SendVideo photoMessage = new SendVideo();
         photoMessage.setChatId(chatId);
 
         // Determine the image URL based on the language
         String imageUrl;
         switch (language) {
             case "uz":
-                imageUrl = "https://cdn.dailysports.net/brand-rating/brand/660bf0b8578266c4bc28b5efff1b59fb4b96bc69c3d6c0009b49b6398c0bebdc.png";
+                imageUrl = "https://photos.app.goo.gl/aJunMyEuqiMcXyCZ7";
                 break;
             case "ru":
-                imageUrl = "https://cdn.dailysports.net/brand-rating/brand/660bf0b8578266c4bc28b5efff1b59fb4b96bc69c3d6c0009b49b6398c0bebdc.png";
+                imageUrl = "https://photos.app.goo.gl/aJunMyEuqiMcXyCZ7";
                 break;
             case "en":
             default:
-                imageUrl = "https://cdn.dailysports.net/brand-rating/brand/660bf0b8578266c4bc28b5efff1b59fb4b96bc69c3d6c0009b49b6398c0bebdc.png";
+                imageUrl = "https://photos.app.goo.gl/aJunMyEuqiMcXyCZ7";
                 break;
         }
 
         // Set the image URL for the SendPhoto object
-        photoMessage.setPhoto(new InputFile(imageUrl));
+        photoMessage.setVideo(new InputFile(imageUrl));
 
         // Determine the caption text based on the language
         String captionText;
