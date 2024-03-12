@@ -30,18 +30,24 @@ public class KeyboardFactory {
 
         KeyboardRow row1 = new KeyboardRow();
         row1.add(getDownloadAndroidAPK(language));
-        row1.add(getDownloadIOS(language));
-
 
         KeyboardRow row2 = new KeyboardRow();
-        row2.add(getGoToWebsite(language));
-        row2.add(getGetBonus(language));
+        row2.add(getDownloadIOS(language));
+
 
         KeyboardRow row3 = new KeyboardRow();
-        row3.add(getViewPromotions(language));
-        row3.add(getSettings(language));
+        row3.add(getGoToWebsite(language));
 
-        keyboardMarkup.setKeyboard(List.of(row1, row2, row3));
+        KeyboardRow row4 = new KeyboardRow();
+        row4.add(getGetBonus(language));
+
+        KeyboardRow row5 = new KeyboardRow();
+        row5.add(getViewPromotions(language));
+
+        KeyboardRow row6 = new KeyboardRow();
+        row6.add(getSettings(language));
+
+        keyboardMarkup.setKeyboard(List.of(row1, row2, row3, row4, row5, row6));
         return keyboardMarkup;
     }
 
